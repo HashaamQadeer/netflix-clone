@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Choose your plan</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            netflixRed: '#E50914',
+            netflixRedHover: '#C11119',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../src/styles/styles.css">
+</head>
+<body class="bg-white text-[#333] font-sans antialiased min-h-screen flex flex-col">
+
+  <header class="bg-white border-b border-gray-200 py-4 px-6 md:px-12 flex justify-between items-center h-[90px]">
+    <a href="../index.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="w-32 md:w-44">
+    </a>
+    
+    <a href="login.html" class="text-[#333] font-bold text-lg md:text-xl hover:underline text-decoration-none">Sign In</a>
+  </header>
+
+  <main class="flex-grow flex justify-center items-center px-4 py-8">
+    <div class="max-w-[340px] w-full flex flex-col text-center md:text-left">
+      
+      <div class="mb-6 flex justify-center md:justify-start">
+        <svg class="w-12 h-12 text-netflixRed" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M8 12l2.5 2.5L16 9"></path>
+        </svg>
+      </div>
+      
+      <span class="text-[13px] uppercase tracking-wide mb-1">Step <span class="font-bold">1</span> of <span class="font-bold">3</span></span>
+      
+      <h1 class="text-[32px] font-bold mb-4 leading-tight text-black">Choose your plan</h1>
+      
+      <ul class="text-[18px] space-y-4 mb-8 text-left text-[#333]">
+        <li class="flex items-start">
+          <svg class="w-7 h-7 text-netflixRed mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>No commitments, cancel anytime.</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-7 h-7 text-netflixRed mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Everything on Netflix for one low price.</span>
+        </li>
+        <li class="flex items-start">
+          <svg class="w-7 h-7 text-netflixRed mr-2 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>No ads and no extra fees. Ever.</span>
+        </li>
+      </ul>
+      
+      <a href="planform.html" class="w-full bg-netflixRed hover:bg-netflixRedHover text-white text-2xl font-medium py-4 rounded text-center transition duration-200 text-decoration-none">
+        Next
+      </a>
+
+    </div>
+  </main>
+
+  <footer class="bg-[#f3f3f3] border-t border-gray-200 text-[#737373] py-8 px-6 md:px-12 text-[13px]">
+    <div class="max-w-5xl mx-auto">
+      <p class="mb-6">Questions? <a href="#" class="hover:underline">Contact us.</a></p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <a href="#" class="hover:underline">FAQ</a>
+        <a href="#" class="hover:underline">Help Center</a>
+        <a href="#" class="hover:underline">Terms of Use</a>
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Cookie Preferences</a>
+        <a href="#" class="hover:underline">Corporate Information</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -107,3 +107,13 @@ body {
   z-index: 0;
   pointer-events: none;
 }
+
+/* Optional: Adds a subtle red shadow to match the error focus */
+input.border-red-600:focus {
+    box-shadow: 0 0 0 2px rgba(185, 45, 39, 0.2);
+}
+
+/* Optional: Adds a subtle red shadow to match the error focus */
+input.border-red-600:focus {
+    box-shadow: 0 0 0 2px rgba(185, 45, 39, 0.2);
+}

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Choose your plan</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            netflixRed: '#E50914',
+            netflixRedHover: '#C11119',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../src/styles/styles.css">
+</head>
+<body class="bg-white text-[#333] font-sans antialiased min-h-screen flex flex-col">
+
+  <header class="bg-white border-b border-gray-200 py-4 px-6 md:px-12 flex justify-between items-center h-[90px]">
+    <a href="../index.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="w-32 md:w-44">
+    </a>
+    <a href="login.html" class="text-[#333] font-bold text-lg md:text-xl hover:underline text-decoration-none">Sign In</a>
+  </header>
+
+  <main class="flex-grow max-w-[1000px] mx-auto w-full px-4 py-8">
+    
+    <div class="mb-8">
+      <span class="text-[13px] uppercase tracking-wide mb-1 block">Step <span class="font-bold">1</span> of <span class="font-bold">3</span></span>
+      <h1 class="text-[32px] font-bold mb-4 leading-tight text-black">Choose the plan that's right for you</h1>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+      
+      <div class="border border-gray-300 rounded-xl overflow-hidden flex flex-col">
+        <div class="bg-gradient-to-br from-blue-800 to-blue-500 text-white p-4 min-h-[90px]">
+          <h3 class="font-bold text-lg">Mobile</h3>
+          <p class="text-sm font-medium">480p</p>
+        </div>
+        <div class="p-4 flex-grow text-[13px]">
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Monthly price</p>
+            <p class="font-medium text-black">PKR 250</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Video and sound quality</p>
+            <p class="font-medium text-black">Fair</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Resolution</p>
+            <p class="font-medium text-black">480p</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Supported devices</p>
+            <p class="font-medium text-black">Mobile phone, tablet</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Devices your household can watch at the same time</p>
+            <p class="font-medium text-black">1</p>
+          </div>
+          <div class="py-3">
+            <p class="text-gray-500 mb-1">Download devices</p>
+            <p class="font-medium text-black">1</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-xl overflow-hidden flex flex-col">
+        <div class="bg-gradient-to-br from-indigo-800 to-purple-600 text-white p-4 min-h-[90px]">
+          <h3 class="font-bold text-lg">Basic</h3>
+          <p class="text-sm font-medium">720p</p>
+        </div>
+        <div class="p-4 flex-grow text-[13px]">
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Monthly price</p>
+            <p class="font-medium text-black">PKR 450</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Video and sound quality</p>
+            <p class="font-medium text-black">Good</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Resolution</p>
+            <p class="font-medium text-black">720p (HD)</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Supported devices</p>
+            <p class="font-medium text-black">TV, computer, mobile phone, tablet</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Devices your household can watch at the same time</p>
+            <p class="font-medium text-black">1</p>
+          </div>
+          <div class="py-3">
+            <p class="text-gray-500 mb-1">Download devices</p>
+            <p class="font-medium text-black">1</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border border-gray-300 rounded-xl overflow-hidden flex flex-col">
+        <div class="bg-gradient-to-br from-purple-800 to-fuchsia-600 text-white p-4 min-h-[90px]">
+          <h3 class="font-bold text-lg">Standard</h3>
+          <p class="text-sm font-medium">1080p</p>
+        </div>
+        <div class="p-4 flex-grow text-[13px]">
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Monthly price</p>
+            <p class="font-medium text-black">PKR 800</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Video and sound quality</p>
+            <p class="font-medium text-black">Great</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Resolution</p>
+            <p class="font-medium text-black">1080p (Full HD)</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Supported devices</p>
+            <p class="font-medium text-black">TV, computer, mobile phone, tablet</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Devices your household can watch at the same time</p>
+            <p class="font-medium text-black">2</p>
+          </div>
+          <div class="py-3">
+            <p class="text-gray-500 mb-1">Download devices</p>
+            <p class="font-medium text-black">2</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="border-2 border-netflixRed rounded-xl overflow-hidden shadow-lg flex flex-col relative mt-[-24px]">
+        <div class="bg-netflixRed text-white text-center text-[11px] font-bold py-1.5 uppercase">
+          Most Popular
+        </div>
+        <div class="bg-gradient-to-br from-purple-900 to-netflixRed text-white p-4 relative min-h-[90px]">
+          <h3 class="font-bold text-lg">Premium</h3>
+          <p class="text-sm font-medium">4K + HDR</p>
+          <div class="absolute bottom-4 right-4 bg-white text-netflixRed rounded-full w-5 h-5 flex items-center justify-center">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+        </div>
+        <div class="p-4 flex-grow text-[13px]">
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Monthly price</p>
+            <p class="font-medium text-black">PKR 1,100</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Video and sound quality</p>
+            <p class="font-medium text-black">Best</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Resolution</p>
+            <p class="font-medium text-black">4K (Ultra HD) + HDR</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Spatial audio (immersive sound)</p>
+            <p class="font-medium text-black">Included</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Supported devices</p>
+            <p class="font-medium text-black">TV, computer, mobile phone, tablet</p>
+          </div>
+          <div class="py-3 border-b border-gray-200">
+            <p class="text-gray-500 mb-1">Devices your household can watch at the same time</p>
+            <p class="font-medium text-black">4</p>
+          </div>
+          <div class="py-3">
+            <p class="text-gray-500 mb-1">Download devices</p>
+            <p class="font-medium text-black">6</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-[13px] text-[#737373] mb-8 space-y-2">
+      <p>HD (720p), Full HD (1080p), Ultra HD (4K) and HDR availability subject to your internet service and device capabilities. Not all content is available in all resolutions. See our <a href="#" class="text-blue-600 hover:underline">Terms of Use</a> for more details.</p>
+      <p>Only people who live with you may use your account. Watch on 4 different devices at the same time with Premium, 2 with Standard, and 1 with Basic and Mobile.</p>
+      <p>Live events are included with any Netflix plan and contain ads.</p>
+    </div>
+
+    <div class="flex justify-center">
+      <a href="/pages/setup.html" class="max-w-[400px] w-full bg-netflixRed hover:bg-netflixRedHover text-white text-2xl font-medium py-4 rounded text-center transition duration-200 text-decoration-none">
+        Next
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="bg-[#f3f3f3] border-t border-gray-200 text-[#737373] py-8 px-6 md:px-12 text-[13px] mt-auto">
+    <div class="max-w-5xl mx-auto">
+      <p class="mb-6">Questions? <a href="#" class="hover:underline">Contact us.</a></p>
+      
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <a href="#" class="hover:underline">FAQ</a>
+        <a href="#" class="hover:underline">Help Center</a>
+        <a href="#" class="hover:underline">Terms of Use</a>
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Cookie Preferences</a>
+        <a href="#" class="hover:underline">Corporate Information</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
