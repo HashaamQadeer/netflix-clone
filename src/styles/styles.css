@@ -1,0 +1,109 @@
+/* =========================================
+   1. Custom Fonts
+   ========================================= */
+@font-face {
+  font-family: 'Netflix Sans';
+  src: url('../../assets/fonts/NetflixSans_W_Th.woff2') format('woff2');
+  font-weight: 300; 
+  font-style: normal;
+}
+
+body {
+  font-family: 'Netflix Sans', ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+}
+
+/* =========================================
+   2. Global Styles & Overrides
+   ========================================= */
+.hero-bg {
+  background-image: url('../../assets/imgs/landing-page.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Styling the Email Input Box */
+.form-control {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+    color: white !important;
+    border: 1px solid #8c8c8c !important;
+}
+
+/* Styling the Label (The "Email address" text) */
+.form-floating > label {
+    color: #8c8c8c !important;
+}
+
+/* Ensuring the background stays black when you click/type */
+.form-control:focus {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+    border-color: white !important;
+}
+
+.form-control:focus ~ label,
+.form-control:not(:placeholder-shown) ~ label {
+    color: #8c8c8c !important;
+}
+
+/* The Glowing Curved Border */
+.curve-divider {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  overflow: hidden;
+  z-index: 20;
+}
+
+.curve-divider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -25%;
+  width: 150%;
+  height: 100%;
+  border-radius: 50% 50% 0 0;
+  border-top: 4px solid rgba(229, 9, 20, 0.6);
+  background: radial-gradient(ellipse at top, rgba(229, 9, 20, 0.2) 0%, rgba(0,0,0,1) 60%);
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+/* The hollow, outlined numbers on the trending movie posters */
+.trending-number {
+  color: black;
+  -webkit-text-stroke: 4px white;
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+  user-select: none; 
+}
+
+/* The dark purple/blue gradient cards */
+.reason-card {
+  background-color: #191924; 
+  background-image: linear-gradient(135deg, rgba(33,33,53,1) 0%, rgba(13,13,20,1) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+/* Adds the subtle red glowing orb effect in the bottom right corner of the cards */
+.reason-card::before {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  right: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(229,9,20,0.15) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+  pointer-events: none;
+}
