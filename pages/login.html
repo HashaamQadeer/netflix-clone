@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix - Sign In</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            netflixRed: '#E50914',
+            netflixRedHover: '#C11119',
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="../src/styles/styles.css">
+</head>
+<body class="bg-black sm:bg-[#141414] text-white font-sans antialiased min-h-screen flex flex-col relative">
+
+  <div class="hidden sm:block absolute inset-0 z-0">
+    <img src="../assets/imgs/AAAABcC8frO1TvcagDnlZl2vzUdSRRoxQ-5ZxfYKGkvGNGxNqiovOvGf6aX-7QIhxkgqrNES8ylOos4YdAofgdnLVsXjJXPO-Pv7XYVC.webp" class="w-full h-full object-cover opacity-50" alt="Background">
+    <div class="absolute inset-0 bg-black/50"></div>
+  </div>
+
+  <header class="relative z-50 py-4 px-6 md:px-12 flex justify-between items-center h-[90px] bg-gradient-to-b from-black/80 to-transparent">
+    <a href="../index.html">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="w-32 md:w-44">
+    </a>
+  </header>
+
+  <main class="flex-grow flex justify-center items-center px-4 py-8 z-10 relative">
+    <div class="bg-black/80 sm:bg-black/75 p-8 sm:p-16 rounded-md w-full max-w-[450px]">
+      
+      <h1 class="text-3xl font-bold mb-8">Sign In</h1>
+      
+      <form id="loginForm" class="flex flex-col gap-4">
+        
+        <div class="relative w-full">
+          <input type="email" id="email" required
+            class="peer w-full h-[55px] px-4 pt-5 pb-1 bg-[#333] rounded-sm text-white text-md outline-none focus:bg-[#454545] transition-all placeholder-transparent" 
+            placeholder="Email">
+          <label for="email" 
+            class="absolute left-4 top-4 text-[#8c8c8c] transition-all pointer-events-none
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-md 
+            peer-focus:top-1 peer-focus:text-[11px]
+            peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[11px]">
+            Email or phone number
+          </label>
+        </div>
+
+        <div class="relative w-full mb-4">
+          <input type="password" id="password" required
+            class="peer w-full h-[55px] px-4 pt-5 pb-1 bg-[#333] rounded-sm text-white text-md outline-none focus:bg-[#454545] transition-all placeholder-transparent" 
+            placeholder="Password">
+          <label for="password" 
+            class="absolute left-4 top-4 text-[#8c8c8c] transition-all pointer-events-none
+            peer-placeholder-shown:top-4 peer-placeholder-shown:text-md 
+            peer-focus:top-1 peer-focus:text-[11px]
+            peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-[11px]">
+            Password
+          </label>
+        </div>
+
+        <button type="submit" class="w-full bg-netflixRed hover:bg-netflixRedHover text-white text-lg font-bold py-3.5 rounded-sm transition duration-200">
+<a href="pages/login.html" class="...">Sign In</a>        </button>
+
+        <div class="flex justify-between items-center text-[#b3b3b3] text-[13px] mt-2">
+          <div class="flex items-center gap-1">
+            <input type="checkbox" id="remember" class="w-4 h-4 accent-gray-500 bg-[#333] border-none rounded-sm">
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="#" class="hover:underline">Need help?</a>
+        </div>
+      </form>
+
+      <div class="mt-16 text-[#737373]">
+        <p class="text-[16px] mb-2">
+          New to Netflix? <a href="regform.html" class="text-white hover:underline">Sign up now.</a>
+        </p>
+        <p class="text-[13px]">
+          This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#" class="text-blue-600 hover:underline">Learn more.</a>
+        </p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="bg-black/80 border-t border-gray-800 text-[#737373] py-8 px-6 md:px-12 text-[13px] mt-auto z-10 relative">
+    <div class="max-w-5xl mx-auto">
+      <p class="mb-6">Questions? <a href="#" class="hover:underline">Contact us.</a></p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+        <a href="#" class="hover:underline">FAQ</a>
+        <a href="#" class="hover:underline">Help Center</a>
+        <a href="#" class="hover:underline">Terms of Use</a>
+        <a href="#" class="hover:underline">Privacy</a>
+        <a href="#" class="hover:underline">Cookie Preferences</a>
+        <a href="#" class="hover:underline">Corporate Information</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    // Notice we import signInWithEmailAndPassword here instead of createUser...
+    import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+    // Your Firebase Configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBgyXhZpm2FMhG2-VJAQdA8zsPU7Sx7CzY",
+      authDomain: "netflix-clone-83442.firebaseapp.com",
+      projectId: "netflix-clone-83442",
+      storageBucket: "netflix-clone-83442.firebasestorage.app",
+      messagingSenderId: "687029861226",
+      appId: "1:687029861226:web:0e0e9e76f78d6a8f9a4313",
+      measurementId: "G-DV9G0CHV7K"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Get Form Elements
+    const loginForm = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    // Handle Login Submission
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault(); 
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      // Firebase Magic: Sign In
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Success! User is authenticated
+          console.log("Welcome back:", userCredential.user.email);
+          
+          // Redirect to the Browse page (Going back one folder level)
+          window.location.href = "../browse.html"; 
+        })
+        .catch((error) => {
+          // Failure! Incorrect email or password
+          console.error("Login Error:", error.code, error.message);
+          
+          // Show a user-friendly alert
+          alert("Incorrect email or password. Please try again.");
+        });
+    });
+  </script>
+
+</body>
+</html>

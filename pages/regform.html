@@ -40,35 +40,29 @@
       <p class="text-[18px] mb-2 text-[#333] leading-snug text-left">Just a few more steps and you're done!</p>
       <p class="text-[18px] mb-6 text-[#333] leading-snug text-left">We hate paperwork, too.</p>
       
-      <form class="flex flex-col gap-4">
+      <form id="regForm" class="flex flex-col gap-4">
         
-       <div class="flex flex-col w-full mb-2">
-  <div class="relative w-full">
-    <input type="email" id="regEmail" 
-      class="peer w-full h-[60px] px-4 pt-5 pb-1 border border-red-600 rounded-sm text-black text-lg outline-none transition-all placeholder-transparent" 
-      placeholder="Email">
-    
-    <label for="regEmail" 
-      class="absolute left-4 top-4 text-gray-500 transition-all pointer-events-none
-      peer-placeholder-shown:top-4 peer-placeholder-shown:text-lg 
-      peer-focus:top-1 peer-focus:text-xs
-      peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-xs">
-      Email
-    </label>
-  </div>
-  
-  <div class="flex items-center gap-1 text-[#b92d27] text-[13px] mt-1">
-    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"></path>
-    </svg>
-    <span>Email is required</span>
-  </div>
-</div>
+        <div class="flex flex-col w-full mb-2">
+          <div class="relative w-full">
+            <input type="email" id="email" required
+              class="peer w-full h-[60px] px-4 pt-5 pb-1 border border-gray-400 rounded-sm text-black text-lg outline-none focus:border-blue-600 transition-all placeholder-transparent" 
+              placeholder="Email">
+            
+            <label for="email" 
+              class="absolute left-4 top-4 text-gray-500 transition-all pointer-events-none
+              peer-placeholder-shown:top-4 peer-placeholder-shown:text-lg 
+              peer-focus:top-1 peer-focus:text-xs
+              peer-[:not(:placeholder-shown)]:top-1 peer-[:not(:placeholder-shown)]:text-xs">
+              Email
+            </label>
+          </div>
+        </div>
+
         <div class="relative w-full group">
-          <input type="password" id="regPassword" 
+          <input type="password" id="password" required minlength="6"
             class="peer w-full h-[60px] px-4 pt-5 pb-1 border border-gray-400 rounded-sm text-black text-lg outline-none focus:border-blue-600 transition-all placeholder-transparent" 
             placeholder="Add a password">
-          <label for="regPassword" 
+          <label for="password" 
             class="absolute left-4 top-4 text-gray-500 transition-all pointer-events-none
             peer-placeholder-shown:top-4 peer-placeholder-shown:text-lg 
             peer-focus:top-1 peer-focus:text-xs
@@ -82,11 +76,9 @@
           <label for="optOut" class="text-[16px] text-[#333] cursor-pointer">Please do not email me Netflix special offers.</label>
         </div>
         
-        <a href="payment.html" class="block w-full text-decoration-none">
-  <button type="button" class="w-full bg-netflixRed hover:bg-netflixRedHover text-white text-2xl font-medium py-4 rounded-sm mt-4 transition duration-200">
-    Next
-  </button>
-</a>
+        <button type="submit" class="w-full bg-netflixRed hover:bg-netflixRedHover text-white text-2xl font-medium py-4 rounded-sm mt-4 transition duration-200">
+          Next
+        </button>
       </form>
 
     </div>
@@ -106,6 +98,58 @@
       </div>
     </div>
   </footer>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+
+    // Your Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBgyXhZpm2FMhG2-VJAQdA8zsPU7Sx7CzY",
+      authDomain: "netflix-clone-83442.firebaseapp.com",
+      projectId: "netflix-clone-83442",
+      storageBucket: "netflix-clone-83442.firebasestorage.app",
+      messagingSenderId: "687029861226",
+      appId: "1:687029861226:web:0e0e9e76f78d6a8f9a4313",
+      measurementId: "G-DV9G0CHV7K"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Get HTML Elements
+    const regForm = document.getElementById('regForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+
+    // Handle Form Submission
+    regForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Stop standard HTML form submission
+
+      const email = emailInput.value;
+      const password = passwordInput.value;
+
+      // Create user in Firebase
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Success
+          console.log("Registration Successful!", userCredential.user.email);
+          // Redirect to browse page (or payment page depending on your flow)
+          window.location.href = "../browse.html";
+        })
+        .catch((error) => {
+          // Handle Errors
+          if (error.code === 'auth/email-already-in-use') {
+            alert('This email is already registered. Please Sign In.');
+          } else if (error.code === 'auth/weak-password') {
+            alert('Password should be at least 6 characters.');
+          } else {
+            alert('Error: ' + error.message);
+          }
+        });
+    });
+  </script>
 
 </body>
 </html>
